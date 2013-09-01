@@ -1,0 +1,3 @@
+FragmentTest is just a test app for me to learn fragment. Nothing more. 
+
+Now, move on...
