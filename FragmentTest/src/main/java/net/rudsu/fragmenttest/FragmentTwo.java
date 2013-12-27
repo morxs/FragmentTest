@@ -15,9 +15,11 @@ public class FragmentTwo extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
         if (getArguments().containsKey(ARG_ITEM_ID)) {
 
         }
+        */
     }
 
     @Override

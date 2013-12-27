@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/pane_separator"
+    android:orientation="horizontal"
+    android:showDividers="middle">
+
+    <fragment
+        android:id="@+id/left_pane"
+        android:name="net.rudsu.fragmenttest.FragmentOne"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        tools:layout="@layout/first_fragment" />
+
+    <fragment
+        android:id="@+id/right_pane"
+        android:name="net.rudsu.fragmenttest.FragmentTwo"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        tools:layout="@layout/second_fragment" />
+
+</LinearLayout>

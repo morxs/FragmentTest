@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 //import android.view.LayoutInflater;
 //import android.view.Menu;
+import android.util.Log;
 import android.view.View;
 //import android.view.ViewGroup;
 
@@ -19,19 +20,26 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         // Check whether the activity is using the layout version with
         // the fragment_container FrameLayout. If so, we must add the first fragment
-        if (findViewById(R.id.fragment_container) != null) {
+        if (findViewById(R.id.fragment_container) == null) {
+            // The detail container view will be present only in the
+            // large-screen layouts (res/values-large and
+            // res/values-sw600dp). If this view is present, then the
+            // activity should be in two-pane mode.
+            mTwoPane = true;
 
-            // However, if we're being restored from a previous state,
-            // then we don't need to do anything and should return or else
-            // we could end up with overlapping fragments.
-            if (savedInstanceState != null) {
-                return;
-            }
+            // In two-pane mode, list items should be given the
+            // 'activated' state when touched.
+//            ((ArticleListFragment) getSupportFragmentManager()
+//                    .findFragmentById(R.id.article_list))
+//                    .setActivateOnItemClick(true);
+        }
 
+        if (!mTwoPane) {
             // Create an instance of ExampleFragment
             FragmentOne firstFragment = new FragmentOne();
 
@@ -42,6 +50,29 @@ public class MainActivity extends FragmentActivity {
             // Add the fragment to the 'fragment_container' FrameLayout
             fm.beginTransaction().add(R.id.fragment_container, firstFragment).commit();
         }
+        else {
+
+        }
+
+//        if (findViewById(R.id.fragment_container) != null) {
+//
+//            // However, if we're being restored from a previous state,
+//            // then we don't need to do anything and should return or else
+//            // we could end up with overlapping fragments.
+//            if (savedInstanceState != null) {
+//                return;
+//            }
+//
+//            // Create an instance of ExampleFragment
+//            FragmentOne firstFragment = new FragmentOne();
+//
+//            // In case this activity was started with special instructions from an Intent,
+//            // pass the Intent's extras to the fragment as arguments
+//            firstFragment.setArguments(getIntent().getExtras());
+//
+//            // Add the fragment to the 'fragment_container' FrameLayout
+//            fm.beginTransaction().add(R.id.fragment_container, firstFragment).commit();
+//        }
     }
 
     public void btnToFragmentTwo(View view) {
